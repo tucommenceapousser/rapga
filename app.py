@@ -27,10 +27,10 @@ st.title("🅰️ TRHACKNON Rap Texts Manager")
 
 # Function to add a message
 def add_message():
-    st.markdown("<h2 style='color: #FFA500;'>💬 Leave a Message</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='color: #FFCC00; font-size: 0.9em;'>Feel free to leave a comment below!</p>", unsafe_allow_html=True)
-    message_text = st.text_area("Enter your message here:")
-
+    st.markdown("<h2 style='color:#FF4B4B; border-bottom:2px solid #FF4B4B;'>💬 Leave a Message</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #FFA500; font-style:italic;'>Feel free to leave a comment below!</p>", unsafe_allow_html=True)
+    message_text = st.text_area("Enter your message here:", help="Type your message in this box")
+    
     if st.button("Submit Message", key="submit_message", help="Click to add your message"):
         if message_text:
             MESSAGES['messages'].append(message_text)
@@ -43,7 +43,7 @@ def add_message():
 
 # Function to upload audio files
 def upload_file():
-    st.markdown("<h2 style='color: #00CFFF; border-bottom: 2px solid #00CFFF;'>📁 Upload an Audio File</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color:#4BA3FF; border-bottom:2px solid #4BA3FF;'>📁 Upload an Audio File</h2>", unsafe_allow_html=True)
     uploaded_file = st.file_uploader("Choose an audio file", type=["mp3", "wav"], help="Supported formats: mp3, wav")
     if uploaded_file is not None:
         file_path = os.path.join(UPLOAD_FOLDER, uploaded_file.name)
@@ -53,10 +53,10 @@ def upload_file():
 
 # Function to add rap text
 def add_rap_text():
-    st.markdown("<h2 style='color: #FF4B4B; border-bottom: 2px solid #FF4B4B;'>📝 Add a Rap Text</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color:#FF4B4B; border-bottom:2px solid #FF4B4B;'>📝 Add a Rap Text</h2>", unsafe_allow_html=True)
     rap_text = st.text_area("Enter your rap text", "")
-    audio_file = st.file_uploader("Optional: Choose an accompanying audio file", type=["mp3", "wav"])
-    
+    audio_file = st.file_uploader("Optional: Choose an accompanying audio file", type=["mp3", "wav"], help="Optional file for rap text")
+
     if st.button("Add Rap Text", key="add_rap"):
         if rap_text:
             RAP_TEXTS.append({
@@ -72,19 +72,19 @@ def add_rap_text():
 
 # Function to display stored messages
 def show_messages():
-    st.markdown("<h2 style='color: #FFA500; border-bottom: 2px solid #FFA500;'>💬 Stored Messages</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color:#39FF14; border-bottom:2px solid #39FF14;'>💬 Stored Messages</h2>", unsafe_allow_html=True)
     if MESSAGES['messages']:
         for msg in MESSAGES['messages']:
-            st.markdown(f"<div style='color:#FFFFFF; background-color:#333333; padding:10px; border-radius:5px; margin-bottom:10px; border-left: 5px solid #FFCC00;'>{msg}</div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='color:#FFFFFF; background-color:#1A1D21; border:1px solid #39FF14; padding:10px; margin:5px 0; border-radius:5px; box-shadow:0 0 5px #39FF14;'>{msg}</div>", unsafe_allow_html=True)
     else:
         st.write("No messages stored yet.")
 
 # Function to display stored rap texts
 def display_rap_texts():
-    st.markdown("<h2 style='color: #FF4B4B; border-bottom: 2px solid #FF4B4B;'>🎵 Stored Rap Texts</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color:#FF4B4B; border-bottom:2px solid #FF4B4B;'>🎵 Stored Rap Texts</h2>", unsafe_allow_html=True)
     if RAP_TEXTS:
         for rap in RAP_TEXTS:
-            st.markdown(f"<div style='color:#39FF14; background-color:#222222; padding:10px; border-radius:5px; margin-bottom:10px; border-left: 5px solid #39FF14;'><b>Rap Text:</b> {rap['rapText']}</div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='color:#4BA3FF; background-color:#1C1F24; border:1px solid #4BA3FF; padding:10px; margin:5px 0; border-radius:5px; box-shadow:0 0 5px #4BA3FF;'><b>Rap Text:</b> {rap['rapText']}</div>", unsafe_allow_html=True)
             if rap['audioFilename']:
                 st.audio(os.path.join(UPLOAD_FOLDER, rap['audioFilename']))
     else:
