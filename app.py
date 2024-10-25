@@ -25,6 +25,20 @@ if os.path.exists(MESSAGES_FILE):
 # Streamlit app layout
 st.title("🎤 Rap Text and File Manager")
 
+# Function to add a message
+def add_message():
+    st.header("💬 Leave a Message")
+    message_text = st.text_area("Enter your message here:")
+    if st.button("Submit Message"):
+        if message_text:
+            MESSAGES['messages'].append(message_text)
+            # Save to messages.json
+            with open(MESSAGES_FILE, 'w') as file:
+                json.dump(MESSAGES, file, indent=2)
+            st.success("Message submitted successfully!")
+        else:
+            st.error("Please enter a message before submitting.")
+
 # Function to upload audio files
 def upload_file():
     st.header("📁 Upload an Audio File")
@@ -75,6 +89,7 @@ def display_rap_texts():
         st.write("No rap texts stored yet.")
 
 # Run functions
+add_message()
 show_messages()
 upload_file()
 add_rap_text()
