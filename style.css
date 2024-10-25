@@ -1,0 +1,41 @@
+body {
+    background-color: #1C1F24;
+    color: #FFFFFF;
+}
+
+h2 {
+    color: #FF4B4B;
+    border-bottom: 2px solid #FF4B4B;
+}
+
+.form-container {
+    border: 1px solid #39FF14;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #39FF14;
+    background-color: #1A1D21;
+}
+
+.submit-btn {
+    background-color: #FF4B4B;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #39FF14;
+}
+
+/* Style pour les messages et rap texts */
+.message, .rap-text {
+    color: #FFFFFF;
+    background-color: #1A1D21;
+    border: 1px solid #4BA3FF;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #4BA3FF;
+}
