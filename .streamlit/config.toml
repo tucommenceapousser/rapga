@@ -2,12 +2,13 @@
 
 [theme]
 base="dark"
-primaryColor="#FF4B4B"  # Couleur principale pour les boutons et éléments interactifs
-backgroundColor="#0E1117"  # Fond sombre pour l'ensemble de l'application
-secondaryBackgroundColor="#1C1F24"  # Fond secondaire pour les sections distinctes
-textColor="#39FF14"  # Texte vert fluo pour le style hacker
-font="monospace"  # Style terminal pour le texte
+primaryColor="#FF4B4B"  # Rouge pour les boutons et éléments interactifs
+backgroundColor="#0E1117"  # Fond sombre global
+secondaryBackgroundColor="#1C1F24"  # Fond secondaire
+textColor="#39FF14"  # Texte vert fluo
+font="monospace"
 
+# Couleurs supplémentaires pour les sections
 headerColor="#FF4B4B"
 headerTextColor="#FFFFFF"
 codeTextColor="#FF4B4B"
