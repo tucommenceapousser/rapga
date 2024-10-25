@@ -23,10 +23,11 @@ if os.path.exists(MESSAGES_FILE):
         MESSAGES = json.load(file)
 
 # Streamlit app layout
-st.title("Rap Text and File Manager")
+st.title("🎤 Rap Text and File Manager")
 
 # Function to upload audio files
 def upload_file():
+    st.header("📁 Upload an Audio File")
     uploaded_file = st.file_uploader("Choose an audio file", type=["mp3", "wav"])
     if uploaded_file is not None:
         file_path = os.path.join(UPLOAD_FOLDER, uploaded_file.name)
@@ -36,11 +37,11 @@ def upload_file():
 
 # Function to add rap text
 def add_rap_text():
-    st.subheader("Add Rap Text")
+    st.header("📝 Add a Rap Text")
     rap_text = st.text_area("Enter your rap text", "")
     audio_file = st.file_uploader("Optional: Choose an accompanying audio file", type=["mp3", "wav"])
 
-    if st.button("Add Rap Text"):
+    if st.button("Add Rap Text", key="add_rap"):
         if rap_text:
             RAP_TEXTS.append({
                 'rapText': rap_text, 
@@ -50,20 +51,28 @@ def add_rap_text():
             with open(DATA_FILE, 'w') as file:
                 json.dump(RAP_TEXTS, file, indent=2)
             st.success("Rap text added successfully")
+        else:
+            st.error("Please enter a rap text before submitting.")
 
 # Function to display stored messages
 def show_messages():
-    st.subheader("Stored Messages")
-    for msg in MESSAGES['messages']:
-        st.write(msg)
+    st.header("💬 Stored Messages")
+    if MESSAGES['messages']:
+        for msg in MESSAGES['messages']:
+            st.write(msg)
+    else:
+        st.write("No messages stored yet.")
 
 # Function to display stored rap texts
 def display_rap_texts():
-    st.subheader("Stored Rap Texts")
-    for rap in RAP_TEXTS:
-        st.write(rap['rapText'])
-        if rap['audioFilename']:
-            st.audio(os.path.join(UPLOAD_FOLDER, rap['audioFilename']))
+    st.header("🎵 Stored Rap Texts")
+    if RAP_TEXTS:
+        for rap in RAP_TEXTS:
+            st.write(rap['rapText'])
+            if rap['audioFilename']:
+                st.audio(os.path.join(UPLOAD_FOLDER, rap['audioFilename']))
+    else:
+        st.write("No rap texts stored yet.")
 
 # Run functions
 show_messages()
