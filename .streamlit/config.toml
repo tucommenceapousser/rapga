@@ -8,7 +8,6 @@ secondaryBackgroundColor="#1C1F24"  # Fond secondaire pour les sections distinct
 textColor="#39FF14"  # Texte vert fluo pour le style hacker
 font="monospace"  # Style terminal pour le texte
 
-# Personnalisation supplémentaire des en-têtes et autres éléments
 headerColor="#FF4B4B"
 headerTextColor="#FFFFFF"
 codeTextColor="#FF4B4B"
