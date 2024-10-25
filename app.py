@@ -23,13 +23,15 @@ if os.path.exists(MESSAGES_FILE):
         MESSAGES = json.load(file)
 
 # Streamlit app layout
-st.title("Ⓐ TRHACKNON Rap Texts Ⓐ")
+st.title("🅰️ TRHACKNON Rap Texts Manager")
 
 # Function to add a message
 def add_message():
-    st.header("💬 Leave a Message")
+    st.markdown("## 💬 Leave a Message", unsafe_allow_html=True)
+    st.markdown("<p style='color: #FFA500;'>Feel free to leave a comment below!</p>", unsafe_allow_html=True)
     message_text = st.text_area("Enter your message here:")
-    if st.button("Submit Message"):
+    
+    if st.button("Submit Message", key="submit_message", help="Click to add your message"):
         if message_text:
             MESSAGES['messages'].append(message_text)
             # Save to messages.json
@@ -41,8 +43,8 @@ def add_message():
 
 # Function to upload audio files
 def upload_file():
-    st.header("📁 Upload an Audio File")
-    uploaded_file = st.file_uploader("Choose an audio file", type=["mp3", "wav"])
+    st.markdown("## 📁 Upload an Audio File")
+    uploaded_file = st.file_uploader("Choose an audio file", type=["mp3", "wav"], help="Supported formats: mp3, wav")
     if uploaded_file is not None:
         file_path = os.path.join(UPLOAD_FOLDER, uploaded_file.name)
         with open(file_path, "wb") as f:
@@ -51,10 +53,10 @@ def upload_file():
 
 # Function to add rap text
 def add_rap_text():
-    st.header("📝 Add a Rap Text")
+    st.markdown("## 📝 Add a Rap Text", unsafe_allow_html=True)
     rap_text = st.text_area("Enter your rap text", "")
     audio_file = st.file_uploader("Optional: Choose an accompanying audio file", type=["mp3", "wav"])
-
+    
     if st.button("Add Rap Text", key="add_rap"):
         if rap_text:
             RAP_TEXTS.append({
@@ -70,19 +72,19 @@ def add_rap_text():
 
 # Function to display stored messages
 def show_messages():
-    st.header("💬 Stored Messages")
+    st.markdown("## 💬 Stored Messages")
     if MESSAGES['messages']:
         for msg in MESSAGES['messages']:
-            st.write(msg)
+            st.markdown(f"<p style='color:#39FF14; background-color:#1A1D21; padding:5px; border-radius:5px;'>{msg}</p>", unsafe_allow_html=True)
     else:
         st.write("No messages stored yet.")
 
 # Function to display stored rap texts
 def display_rap_texts():
-    st.header("🎵 Stored Rap Texts")
+    st.markdown("## 🎵 Stored Rap Texts", unsafe_allow_html=True)
     if RAP_TEXTS:
         for rap in RAP_TEXTS:
-            st.write(rap['rapText'])
+            st.markdown(f"<p style='color:#FF4B4B;'><b>Rap Text:</b> {rap['rapText']}</p>", unsafe_allow_html=True)
             if rap['audioFilename']:
                 st.audio(os.path.join(UPLOAD_FOLDER, rap['audioFilename']))
     else:
