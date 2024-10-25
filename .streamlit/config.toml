@@ -1,33 +1,26 @@
-# config.toml
+# ~/.streamlit/config.toml
 
 [theme]
-base="dark"  # Sombre par défaut
-primaryColor="#FF4B4B"  # Couleur principale pour les éléments interactifs (boutons, menus)
-backgroundColor="#0E1117"  # Fond principal sombre pour un effet hacker
-secondaryBackgroundColor="#1C1F24"  # Fond secondaire pour différencier les sections
-textColor="#39FF14"  # Vert fluo pour le texte principal
+base="dark"
+primaryColor="#FF4B4B"  # Couleur principale pour les boutons et éléments interactifs
+backgroundColor="#0E1117"  # Fond sombre pour l'ensemble de l'application
+secondaryBackgroundColor="#1C1F24"  # Fond secondaire pour les sections distinctes
+textColor="#39FF14"  # Texte vert fluo pour le style hacker
 font="monospace"  # Style terminal pour le texte
 
-# Personnalisation des en-têtes
-headerColor="#FF4B4B"  # Couleur des en-têtes pour les différencier
-headerTextColor="#FFFFFF"  # Couleur du texte des en-têtes
+# Personnalisation supplémentaire des en-têtes et autres éléments
+headerColor="#FF4B4B"
+headerTextColor="#FFFFFF"
+codeTextColor="#FF4B4B"
+errorTextColor="#FF0000"
+infoTextColor="#39FF14"
+warningTextColor="#FFA500"
+borderRadius="10px"
+buttonBorderColor="#FF4B4B"
+inputBorderColor="#39FF14"
+progressColor="#FF4B4B"
 
-# Autres éléments de texte
-codeTextColor="#FF4B4B"  # Couleur du texte pour le code, rouge vif pour attirer l’attention
-errorTextColor="#FF0000"  # Couleur des messages d'erreur, pour bien les identifier
-infoTextColor="#39FF14"  # Vert fluo pour les informations et messages neutres
-warningTextColor="#FFA500"  # Orange pour les avertissements, en contraste avec le vert fluo
-
-# Paramètres de bordures et autres styles
-borderRadius="10px"  # Bords arrondis pour tous les éléments interactifs
-buttonBorderColor="#FF4B4B"  # Bordure rouge pour les boutons
-inputBorderColor="#39FF14"  # Bordure verte pour les champs d’input
-
-# Personnalisation de la barre de progression
-progressColor="#FF4B4B"  # Couleur de la barre de progression (en rouge vif)
-
-# Paramètres de la barre latérale
 [sidebar]
-backgroundColor="#1A1D21"  # Fond de la barre latérale
-textColor="#39FF14"  # Texte de la barre latérale en vert fluo
-headerColor="#FF4B4B"  # Couleur des en-têtes dans la barre latérale
+backgroundColor="#1A1D21"
+textColor="#39FF14"
+headerColor="#FF4B4B"
