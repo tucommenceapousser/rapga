@@ -23,7 +23,7 @@ if os.path.exists(MESSAGES_FILE):
         MESSAGES = json.load(file)
 
 # Streamlit app layout
-st.title("🎤 Rap Text and File Manager")
+st.title("Ⓐ TRHACKNON Rap Texts Ⓐ")
 
 # Function to add a message
 def add_message():
